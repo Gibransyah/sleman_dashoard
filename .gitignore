@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment files
+.env
+.env.local
+infra/.env
+etl/.env
+frontend/.env
+
+# Logs
+logs/
+*.log
+etl/logs/
+
+# Production builds
+.next/
+out/
+build/
+dist/
+
+# Database
+*.sqlite
+*.db
+
+# Docker
+docker-compose.override.yml
+
+# ETL data
+etl/data/*.csv
+etl/data/*.xlsx
+!etl/data/sample_*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

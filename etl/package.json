@@ -1,0 +1,25 @@
+{
+  "name": "@sleman-dashboard/etl",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx run.ts",
+    "etl:all": "tsx run.ts --mode all",
+    "etl:api": "tsx run.ts --mode api",
+    "etl:csv": "tsx run.ts --mode csv"
+  },
+  "dependencies": {
+    "mysql2": "^3.6.5",
+    "axios": "^1.6.2",
+    "csv-parse": "^5.5.2",
+    "xlsx": "^0.18.5",
+    "dotenv": "^16.3.1",
+    "commander": "^11.1.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.4",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.2"
+  }
+}

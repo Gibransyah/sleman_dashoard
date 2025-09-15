@@ -1,0 +1,63 @@
+{
+  "name": "project-magang-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard Data Publik Sleman - Fullstack Application",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "etl",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"pnpm -C frontend dev\" \"pnpm -C backend dev\"",
+    "build": "pnpm -r build",
+    "start": "pnpm -C frontend start",
+    "clean": "pnpm -r clean",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    
+    "etl:all": "pnpm -C etl etl:all",
+    "etl:api": "pnpm -C etl etl:api", 
+    "etl:csv": "pnpm -C etl etl:csv",
+    "etl:single": "pnpm -C etl etl:single",
+    
+    "db:up": "docker compose -f infra/docker-compose.yml up -d mysql",
+    "db:down": "docker compose -f infra/docker-compose.yml down",
+    "db:migrate": "pnpm -C etl run migrate",
+    "db:seed": "pnpm etl:all",
+    
+    "infra:up": "docker compose -f infra/docker-compose.yml up -d",
+    "infra:down": "docker compose -f infra/docker-compose.yml down",
+    "infra:restart": "docker compose -f infra/docker-compose.yml restart",
+    "infra:logs": "docker compose -f infra/docker-compose.yml logs -f",
+    
+    "setup": "pnpm install && cp infra/.env.example infra/.env && echo '\n⚠️  Please edit infra/.env with your configuration, then run: pnpm infra:up'",
+    "bootstrap": "pnpm setup && pnpm infra:up && sleep 30 && pnpm etl:all",
+    "health": "pnpm -C etl run health-check"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "keywords": [
+    "dashboard",
+    "data-analytics",
+    "nextjs",
+    "mysql",
+    "metabase",
+    "etl",
+    "sleman",
+    "government-data"
+  ],
+  "author": "Tim Magang Dashboard Sleman",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gibransyah/sleman_dashoard.git"
+  }
+}
