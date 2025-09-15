@@ -1,0 +1,77 @@
+{
+  "sources": [
+    {
+      "type": "api",
+      "kategori": "kesehatan",
+      "resource_id": "d5ad87ba-ee41-42bc-88e1-fb4d5845e139",
+      "description": "Data kesehatan Kabupaten Sleman",
+      "mapping": {
+        "elemen_field": "Elemen",
+        "year_column_regex": "Data (\\d{4})",
+        "unit_field": "Satuan"
+      }
+    },
+    {
+      "type": "api",
+      "kategori": "pendidikan",
+      "resource_id": "4f760c5b-c0bd-46a9-b20d-cd87f21f6298",
+      "description": "Data pendidikan Kabupaten Sleman",
+      "mapping": {
+        "elemen_field": "Elemen",
+        "year_column_regex": "Data (\\d{4})",
+        "unit_field": "Satuan"
+      }
+    },
+    {
+      "type": "api",
+      "kategori": "kebudayaan",
+      "resource_id": "c5b380db-c242-4e28-b3f2-d9b0eb5d162a",
+      "description": "Data kebudayaan Kabupaten Sleman",
+      "mapping": {
+        "elemen_field": "Elemen",
+        "year_column_regex": "Data (\\d{4})",
+        "unit_field": "Satuan"
+      }
+    },
+    {
+      "type": "api",
+      "kategori": "infrastruktur",
+      "resource_id": "4c3cb950-0677-40e8-8f97-b96575c42c79",
+      "description": "Data infrastruktur Kabupaten Sleman",
+      "mapping": {
+        "elemen_field": "Elemen",
+        "year_column_regex": "Data (\\d{4})",
+        "unit_field": "Satuan"
+      }
+    }
+  ],
+  "csv_sources": [
+    {
+      "type": "csv",
+      "kategori": "kesehatan",
+      "file_path": "./data/sample_kesehatan.csv",
+      "description": "Sample CSV data",
+      "mapping": {
+        "elemen_field": "nama",
+        "tahun_field": "tahun",
+        "nilai_field": "jumlah",
+        "satuan_field": "satuan"
+      },
+      "csv_options": {
+        "delimiter": ",",
+        "header": true,
+        "encoding": "utf8"
+      }
+    }
+  ],
+  "settings": {
+    "base_url": "https://data.slemankab.go.id/data/api/3/action/datastore_search",
+    "batch_size": 100,
+    "max_retries": 3,
+    "retry_delay": 1000,
+    "timeout": 30000,
+    "enable_checkpoints": true,
+    "log_level": "info"
+  }
+}
+    
